@@ -1,4 +1,4 @@
-#FASRec
+# FASRec
 
 This is the official code for Future Augmentation with Self-Distillation in Recommendation
 
