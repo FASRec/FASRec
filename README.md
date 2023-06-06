@@ -1,16 +1,44 @@
-### Coming Soon !
+# FASRec
 
-<!--
-**FASRec/FASRec** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## Reference Code：
 
-Here are some ideas to get you started:
+https://github.com/pmixer/SASRec.pytorch
+https://github.com/fadel/pytorch_ema/tree/master/torch_ema
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Commands：
+
+To train our FASRec on the Yelp data with default parameters:
+
+```
+python main.py --save_dir=Yelp/our+ --teaching_epoch=300 --gpu=4 --dataset=Yelp
+```
+
+To train the baseline model on the Yelp data with default parameters:
+
+```
+python main.py --save_dir=Yelp/orgin --teaching_epoch=1000 --gpu=5 --dataset=Yelp
+```
+
+## Options:
+
+The training of the FASRec model is handled by the main.py script that provides the following command line arguments.
+
+```
+--dataset            STR           Name of dataset.               Default is "Beauty".
+--name               STR           Train directory.               Required.
+--batch_size         INT           Batch size.                    Default is 128.    
+--lr                 FLOAT         Learning rate.                 Default is 0.001.
+--maxlen             INT           Maxmum length of sequence.     Default is 50.
+--hidden_units       INT           Number of hidden units.        Default is 50.
+--num_blocks         INT           Number of blocks.              Default is 2.
+--num_epochs         INT           Number of epochs to run.       Default is 201.
+--num_heads          INT           Number of heads.               Default is 1.
+--dropout_rate       FLOAT         Dropout rate value.            Default is 0.5.
+--device             STR           Device for training.           Default is 'cuda'.
+--l2_emb             FLOAT         L2 regularization value.       Default is 0.0.
+--gpu                STR           Name of GPU to use.            Default is "0".
+--reverse            INT           m in the paper.                Default is 5.
+--lbd                FLOAT         alpha in the paper.            Default is 0.3.
+--decay              FLOAT         d in the paper.                Default is 0.999.
+--neg_nums           INT           number of negative samples.    Default is 100.
+```
