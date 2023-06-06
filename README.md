@@ -1,4 +1,6 @@
-# FASRec
+#FASRec
+
+This is the official code for Future Augmentation with Self-Distillation in Recommendation
 
 ## Reference Code：
 
@@ -25,7 +27,7 @@ The training of the FASRec model is handled by the main.py script that provides 
 
 ```
 --dataset            STR           Name of dataset.               Default is "Beauty".
---name               STR           Train directory.               Required.
+--save_dir           STR           Path to save checkpoint.       Default is "tmp_out".
 --batch_size         INT           Batch size.                    Default is 128.    
 --lr                 FLOAT         Learning rate.                 Default is 0.001.
 --maxlen             INT           Maxmum length of sequence.     Default is 50.
@@ -37,8 +39,9 @@ The training of the FASRec model is handled by the main.py script that provides 
 --device             STR           Device for training.           Default is 'cuda'.
 --l2_emb             FLOAT         L2 regularization value.       Default is 0.0.
 --gpu                STR           Name of GPU to use.            Default is "0".
---reverse            INT           m in the paper.                Default is 5.
---lbd                FLOAT         alpha in the paper.            Default is 0.3.
---decay              FLOAT         d in the paper.                Default is 0.999.
---neg_nums           INT           number of negative samples.    Default is 100.
+--alpha              FLOAT         Weight for teacher predict.    Default is 0.7.
+--teaching_epoch     INT           When to use teacher predict.   Default is 300.
+--onlyP              BOOL          Only use teacher's postive     Default is False.
+																	 predict.
+--decay              FLOAT         Decay rate for EMA.            Default is 0.999.
 ```
